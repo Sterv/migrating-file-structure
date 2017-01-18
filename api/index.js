@@ -17,7 +17,7 @@ const mode = process.env.NODE_ENV;
 const app = express();
 
 // Middleware
-app.use(express.static('build'));
+app.use(express.static('./build'));
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', port);
   res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
@@ -39,7 +39,7 @@ app.use(compression());
 // Routing
 app.use('/api/v1', [photoRoutes, userRoutes]);
 app.get('/*', (req, res) => {
-   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+   res.sendFile(path.join(__dirname, './build', 'index.html'));
 });
 
 // Express Server

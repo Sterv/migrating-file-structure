@@ -8,5 +8,10 @@
     "/api/": {
       "origin": "${process.env.REACT_APP_ROOT_URL}"
     }
+  },
+  "headers": {
+    "/**": {
+      "Access-Control-Allow-Origin": "*"
+    }
   }
 }
