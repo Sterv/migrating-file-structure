@@ -11,7 +11,8 @@ import { photoRoutes, userRoutes } from './modules';
 import './config/dbConfig';
 
 // Envvars
-const port = process.env.REACT_APP_PORT;
+// const port = process.env.REACT_APP_PORT;
+const port = process.env.PORT || 8000;
 const mode = process.env.NODE_ENV;
 
 const app = express();
