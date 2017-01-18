@@ -11,7 +11,8 @@ import { photoRoutes, userRoutes } from './modules';
 import './config/dbConfig';
 
 // Envvars
-const port = process.env.REACT_APP_PORT;
+// const port = process.env.REACT_APP_PORT;
+const port = process.env.PORT || 8000;
 const mode = process.env.NODE_ENV;
 
 const app = express();
@@ -38,7 +39,7 @@ app.use(compression());
 
 // Routing
 app.use('/api/v1', [photoRoutes, userRoutes]);
-app.get('/*', (req, res) => {
+app.get('/', (req, res) => {
    res.sendFile(path.join(__dirname, './build', 'index.html'));
 });
 
