@@ -38,7 +38,7 @@ app.use(compression());
 
 // Routing
 app.use('/api/v1', [photoRoutes, userRoutes]);
-app.get('/*', (req, res) => {
+app.get('/', (req, res) => {
    res.sendFile(path.join(__dirname, './build', 'index.html'));
 });
 
