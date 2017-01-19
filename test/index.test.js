@@ -1,4 +1,4 @@
-import 'dotenv/config';
+import 'dotenv-safe/config';
 import mongoose from 'mongoose';
 import { expect } from 'chai';
 import request from 'supertest';
