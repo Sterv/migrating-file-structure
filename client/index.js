@@ -3,8 +3,9 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { IntlProvider, IntlActions } from 'react-redux-multilingual';
 import ReduxToastr from 'react-redux-toastr';
+import 'react-redux-toastr/src/styles/index.scss';
 import { store } from './redux/store';
-import Routes from './Routes';
+import Routes from './routes';
 import { translations } from './modules';
 
 const DEFAULT_LANGUAGE = 'ru';
