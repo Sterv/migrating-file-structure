@@ -1,9 +1,52 @@
 {
-  "name": "test",
+  "name": "migrating-file-structure",
   "version": "1.0.0",
   "description": "refactor using webpack2",
-  "main": "index.js",
+  "scripts": {
+    "build": "NODE_ENV=production npm run clean && webpack -p",
+    "clean": "rimraf dist",
+    "dev": "nodemon --exec babel-node index.js",
+    "start": "babel-node index.js"
+  },
   "repository": "https://github.com/rockchalkwushock/migrating-file-structure.git",
   "author": "Cody Brunner <rockchalkwushock@icloud.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-polyfill": "^6.20.0",
+    "babel-register": "^6.18.0",
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.16.0",
+    "cloudinary": "^1.5.0",
+    "compression": "^1.6.2",
+    "cors": "^2.8.1",
+    "dotenv": "^4.0.0",
+    "express": "^4.14.0",
+    "jsonwebtoken": "^7.2.1",
+    "mongoose": "^4.7.7",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0",
+    "validator": "^6.2.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-istanbul": "^3.1.2",
+    "babel-preset-env": "^1.1.8",
+    "concurrently": "^3.1.0",
+    "coveralls": "^2.11.15",
+    "cross-env": "^3.1.4",
+    "eslint": "^3.13.1",
+    "eslint-config-rallycoding": "^3.2.0",
+    "html-webpack-plugin": "^2.26.0",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0",
+    "nyc": "^10.1.2",
+    "rimraf": "^2.5.4",
+    "webpack": "2.2.0-rc.0",
+    "webpack-dev-middleware": "^1.9.0"
+  }
 }
