@@ -1,15 +1,12 @@
-import webpack from 'webpack';
-import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const VENDOR_LIBS = [
-  'react', 'lodash', 'redux', 'react-redux', 'react-dom',
-  'faker', 'react-input-range', 'redux-form', 'redux-thunk'
-];
+const VENDOR_LIBS = [];
 
-export default {
+module.exports = {
   entry: {
-    bundle: './src/index.js',
+    bundle: './client/index.js',
     vendor: VENDOR_LIBS
   },
   output: {

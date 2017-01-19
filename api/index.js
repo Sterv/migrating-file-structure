@@ -11,7 +11,7 @@ import { photoRoutes, userRoutes } from './modules';
 
 // ENVIRONMENT VARIABLES
 const port = process.env.PORT || 8000;
-const mode = process.env.NODE_ENV; // set in script or in Heroku.
+const mode = process.env.NODE_ENV;
 let db;
 
 const app = express();
