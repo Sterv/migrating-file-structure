@@ -17,7 +17,8 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js'
+    filename: '[name].[chunkhash].js',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -25,6 +26,14 @@ module.exports = {
         use: 'babel-loader',
         test: /\.js$/,
         exclude: /node_modules/
+      },
+      {
+        use: ['style-loader', 'css-loader'],
+        test: /\.css$/
+      },
+      {
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /\.scss$/
       }
     ]
   },

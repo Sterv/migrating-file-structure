@@ -1,3 +1,4 @@
+import 'dotenv-safe/config';
 import React from 'react';
 import { render } from 'react-dom';
 import { IntlActions } from 'react-redux-multilingual';
