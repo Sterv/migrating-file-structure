@@ -2,7 +2,13 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const VENDOR_LIBS = [];
+const VENDOR_LIBS = [
+  'axios', 'lodash', 'react', 'react-dom', 'react-redux',
+  'react-redux-multilingual', 'react-redux-toastr', 'react-router',
+  'react-router-redux', 'redux', 'redux-auth-wrapper',
+  'redux-devtools-extension', 'redux-form', 'redux-pack',
+  'redux-promise-middleware', 'semantic-ui-react'
+];
 
 module.exports = {
   entry: {
