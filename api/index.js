@@ -39,21 +39,29 @@ app.use(compression());
 app.use('/api/v1', [photoRoutes, userRoutes]);
 
 // NODE ENVIRONMENT SETUP
-if (mode !== 'production') {
-  // NON-PRODUCITON
-  const webpackMiddleware = require('webpack-dev-middleware');
-  const webpack = require('webpack');
-  const webpackConfig = require('../webpack.config');
+// NOTE: At this point in time all tests are ran on backend.
+// no need to require a webpack build to run testing.
+switch (mode) {
+  case 'test': {
+    db = 'mongodb://localhost/photography-dev';
+    break;
+  }
+  case 'production': {
+    app.use(express.static('dist'));
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, 'dist/index.html'));
+    });
+    db = process.env.MONGO_URL;
+    break;
+  }
+  default: {
+    const webpackMiddleware = require('webpack-dev-middleware');
+    const webpack = require('webpack');
+    const webpackConfig = require('../webpack.config');
 
-  app.use(webpackMiddleware(webpack(webpackConfig)));
-  db = 'mongodb://localhost/photography-dev';
-} else {
-  // PRODUCTION
-  app.use(express.static('dist'));
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/index.html'));
-  });
-  db = process.env.MONGO_URL;
+    app.use(webpackMiddleware(webpack(webpackConfig)));
+    db = 'mongodb://localhost/photography-dev';
+  }
 }
 
 // DATABASE
