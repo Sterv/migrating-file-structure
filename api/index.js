@@ -6,6 +6,7 @@ import cors from 'cors';
 import compression from 'compression';
 import passport from 'passport';
 import { photoRoutes, userRoutes } from './modules';
+import path from 'path';
 
 // Configurations
 import './config/dbConfig';
@@ -39,8 +40,9 @@ app.use(compression());
 
 // Routing
 app.use('/api/v1', [photoRoutes, userRoutes]);
-app.get('/', (req, res) => {
-   res.sendFile(path.join(__dirname, './build', 'index.html'));
+app.get('*', (req, res) => {
+  console.log(path.join(__dirname, '..','./build', 'index.html'), __dirname)
+   res.sendFile(path.join(__dirname, '..','./build', 'index.html'));
 });
 
 // Express Server
