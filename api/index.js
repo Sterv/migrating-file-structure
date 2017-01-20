@@ -35,6 +35,9 @@ app.use(cors());
 app.use(passport.initialize());
 app.use(compression());
 
+// SERVER ROUTING
+app.use('/api/v1', [photoRoutes, userRoutes]);
+
 // NODE ENVIRONMENT SETUP
 // NOTE: At this point in time all tests are ran on backend.
 // no need to require a webpack build to run testing.
@@ -61,9 +64,6 @@ switch (mode) {
     break;
   }
 }
-
-// SERVER ROUTING
-app.use('/api/v1', [photoRoutes, userRoutes]);
 
 // DATABASE
 mongoose.Promise = global.Promise;
