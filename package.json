@@ -4,6 +4,7 @@
   "description": "refactor using webpack2",
   "repository": "https://github.com/rockchalkwushock/migrating-file-structure.git",
   "author": "Cody Brunner <rockchalkwushock@icloud.com>",
+  "homepage": "https://rhcptest.herokuapp.com",
   "license": "MIT",
   "engines": {
     "node": "7.2.1"
