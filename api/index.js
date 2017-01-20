@@ -61,6 +61,7 @@ switch (mode) {
 
     app.use(webpackMiddleware(webpack(webpackConfig)));
     db = 'mongodb://localhost/photography-dev';
+    break;
   }
 }
 
