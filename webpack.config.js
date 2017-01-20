@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const VENDOR_LIBS = [
   'axios', 'lodash', 'react', 'react-dom', 'react-redux',
@@ -18,22 +19,19 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].[chunkhash].js',
-    publicPath: '/'
   },
   module: {
     rules: [
       {
         use: 'babel-loader',
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/
       },
       {
-        use: ['style-loader', 'css-loader'],
-        test: /\.css$/
-      },
-      {
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-        test: /\.scss$/
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          loader: 'css-loader'
+        })
       }
     ]
   },
@@ -45,7 +43,10 @@ module.exports = {
       template: 'public/index.html'
     }),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })
+      'process.env.CLOUD_NAME': JSON.stringify(process.env.CLOUD_NAME),
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'process.env.UPLOAD_PRESET': JSON.stringify(process.env.UPLOAD_PRESET)
+    }),
+    new ExtractTextPlugin('styles.css')
   ]
 };

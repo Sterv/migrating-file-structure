@@ -2,6 +2,12 @@
   "name": "migrating-file-structure",
   "version": "1.0.0",
   "description": "refactor using webpack2",
+  "repository": "https://github.com/rockchalkwushock/migrating-file-structure.git",
+  "author": "Cody Brunner <rockchalkwushock@icloud.com>",
+  "license": "MIT",
+  "engines": {
+    "node": "7.2.1"
+  },
   "scripts": {
     "build": "NODE_ENV=production npm run clean && webpack -p",
     "clean": "rimraf dist",
@@ -10,9 +16,6 @@
     "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=lcov _mocha",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
-  "repository": "https://github.com/rockchalkwushock/migrating-file-structure.git",
-  "author": "Cody Brunner <rockchalkwushock@icloud.com>",
-  "license": "MIT",
   "dependencies": {
     "axios": "^0.15.3",
     "babel-cli": "^6.18.0",
@@ -26,6 +29,7 @@
     "cors": "^2.8.1",
     "dotenv-safe": "^4.0.3",
     "express": "^4.14.0",
+    "extract-text-webpack-plugin": "^2.0.0-beta",
     "html-webpack-plugin": "^2.26.0",
     "jsonwebtoken": "^7.2.1",
     "lodash": "^4.17.4",

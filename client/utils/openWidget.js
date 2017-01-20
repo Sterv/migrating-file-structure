@@ -1,7 +1,5 @@
 import './cloudinary';
 
-console.log(process.env.CLOUD_NAME);
-console.log(process.env.UPLOAD_PRESET);
 // My Cloudinary presets.
 const cloudinaryOptions = {
   cloud_name: process.env.CLOUD_NAME,
