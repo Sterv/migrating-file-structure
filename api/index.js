@@ -48,7 +48,7 @@ switch (mode) {
   }
   case 'production': {
     app.use(express.static('dist'));
-    app.get('/*', (req, res) => {
+    app.get('/', (req, res) => {
       res.sendFile(path.join(__dirname, 'dist/index.html'));
     });
     db = process.env.MONGO_URL;
@@ -76,6 +76,6 @@ mongoose.connection
 // EXPRESS SERVER
 export const server = Server(app);
 server.listen(port, err => {
-  if (err) console.log(`Error happned: ${err}`);
+  if (err) console.log(`Error happened: ${err}`);
   console.log(`Server listening on http://localhost:${port} in ${mode}.`);
 });
